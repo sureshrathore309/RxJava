@@ -8,19 +8,19 @@ import com.apisero.rxjava.observable.ObservableInJust;
 import io.reactivex.Observer;
 import io.reactivex.disposables.Disposable;
 
-public class DemoObserver implements Observer<String> {
+public class DemoObserver<T> implements Observer<T> {
 	private static final Logger LOGGER = LoggerFactory.getLogger(DemoObserver.class);
 
 	public void onSubscribe(Disposable d) {
 		LOGGER.info("onSubscribe");
 	}
 
-	public void onNext(String t) {
-		LOGGER.info("onNext");
+	public void onNext(T t) {
+		LOGGER.info("onNext : " + t);
 	}
 
 	public void onError(Throwable e) {
-		LOGGER.info("onError");
+		LOGGER.error("onError : "+ e.getMessage());
 	}
 
 	public void onComplete() {

@@ -10,7 +10,6 @@ import io.reactivex.Observable;
 public class ObservableInJust {
 	private static final Logger LOGGER = LoggerFactory.getLogger(ObservableInJust.class);
 	public static void main(String[] args) {
-		Observable.just("a", "b", "c", "d", "e", "f", "g", "i", "j").subscribe(new DemoObserver());
-		
+		Observable.just("a", "b", "c", "d", "e", "f", "g", "i", "j").subscribe(new DemoObserver());		
 	}
 }
