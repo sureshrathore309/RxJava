@@ -17,8 +17,8 @@ import io.reactivex.ObservableOnSubscribe;
 public class ObservableUsingCreate {
 	private static final Logger LOGGER = LoggerFactory.getLogger(ObservableUsingCreate.class);
 	public static void main (String []args) {
-		List<Shape> shape = RxUtils.shapes(15);
-		Observable.create(new ObservableOnSubscribe<Object>() {
+		List<Shape> shape = RxUtils.shapes(5);
+		Observable<Object> observable= Observable.create(new ObservableOnSubscribe<Object>() {
 			public void subscribe(ObservableEmitter<Object> emitter) throws Exception {
 				try {
 					shape.forEach(emitter::onNext);
@@ -28,7 +28,10 @@ public class ObservableUsingCreate {
 				}
 				emitter.onComplete();
 			}			
-		}).subscribe(new DemoObserver<Object>());
+		});
+		observable.subscribe(new DemoObserver<Object>());
+		observable.subscribe(new DemoObserver<Object>());
+
 		
 	}
 

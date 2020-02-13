@@ -103,5 +103,13 @@ import com.apisero.rxjava.models.Shape;
             Random r = new Random();
             return r.nextInt((max - min) + 1) + min;
         }
-
+        
+        public static void sleep(long timeInterval) {
+        	try {
+        		Thread.sleep(timeInterval);
+        	}
+        	catch (InterruptedException e) {
+        		e.printStackTrace();
+			}
+        }
     }
